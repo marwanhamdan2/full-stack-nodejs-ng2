@@ -1,0 +1,15 @@
+.del-button{
+    background-color: black;
+    color: red;
+}
+
+
+.add-button{
+    background: lightgreen;
+    font-weight: bolder;
+}
+
+.inline-div{
+    display: inline-block;
+}
+

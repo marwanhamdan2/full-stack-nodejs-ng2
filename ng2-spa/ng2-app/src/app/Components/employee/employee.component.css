@@ -1,0 +1,40 @@
+table{
+    width:50%;
+    border-collapse: collapse;
+}
+
+table tr{
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+}
+
+
+table th{
+    background-color: cornflowerblue;
+    padding: 2px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+table td{
+    padding: 2px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.active-row{
+    background-color: palegreen;
+    color: red;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.middle-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

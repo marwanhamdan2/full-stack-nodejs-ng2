@@ -1,0 +1,21 @@
+<h1>
+  {{title}}
+</h1>
+
+<h2>Names</h2>
+<div>
+  <ul>
+    <li *ngFor="let name of names; let i = index">
+        {{name}} <button (click)="delName(i)" class="del-button">X</button>
+        <button *ngIf="editNameIndex != i" (click)="setEditNameIndex(i)">Edit</button>
+        <div class="inline-div" *ngIf="i == editNameIndex">
+            <input type="text" [(ngModel)]="editNameVal">
+            <button (click)="editName()">set</button>
+            <button (click)="resetEdit()">x</button>
+        </div>
+    </li>
+  </ul>
+  <div>
+    new name: <input type="text" [(ngModel)]="newName"><button  (click)="addName()" class="add-button">+</button>
+  </div>
+</div>

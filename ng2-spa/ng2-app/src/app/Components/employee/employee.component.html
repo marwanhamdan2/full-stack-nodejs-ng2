@@ -1,0 +1,60 @@
+<div class="middle-div">
+    <p style="display: inline">name:</p> <input type="text" [(ngModel)]="newEmployee.name" />
+    <p style="display: inline">Genders:</p> 
+      <select [(ngModel)]="newEmployee.gender">
+        <option value="MALE">MALE</option>
+        <option value="FEMALE">FEMALE</option>
+      </select>
+    <button (click)="addNewEmployee()">Add new</button>
+</div>
+
+<div class="middle-div">
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns">
+          {{column}}
+        </th>
+        <th>
+          Delete
+        </th>
+        <th>
+          Edit
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let employee of employees; let rowIndex = index">
+
+        <!-- id field -->
+        <td *ngIf="rowIndex !=editEmployeeRowIndex">{{employee.id}}</td>
+        <td *ngIf="rowIndex == editEmployeeRowIndex"><input type="text" [(ngModel)]="editEmployeeRowValue.id" /></td>
+        
+        <!-- name field -->
+        <td *ngIf="rowIndex !=editEmployeeRowIndex">{{employee.name}}</td>
+        <td *ngIf="rowIndex == editEmployeeRowIndex"><input type="text" [(ngModel)]="editEmployeeRowValue.name" /></td>
+        
+        <!-- gender field -->
+        <td *ngIf="rowIndex !=editEmployeeRowIndex">{{employee.gender}}</td>
+        <td *ngIf="rowIndex == editEmployeeRowIndex">
+          <select [(ngModel)]="editEmployeeRowValue.gender">
+            <option value="MALE">MALE</option>
+            <option value="FEMALE">FEMALE</option>
+          </select>
+        </td>
+        
+        <td (click)="deleteEmployee(employee.id)"><img src="/assets/delete.png" width="16" height="16" /></td>
+        
+        <!-- edit status -->
+        <td *ngIf="rowIndex !=editEmployeeRowIndex">
+          <img (click)="setEmployeeEdit(rowIndex)" src="/assets/edit.png" width="16" height="16" />
+        </td>
+        <td *ngIf="rowIndex ==editEmployeeRowIndex">
+          <button (click)="editEmployee()">save</button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

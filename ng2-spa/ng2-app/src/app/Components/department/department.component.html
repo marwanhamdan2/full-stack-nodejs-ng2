@@ -1,0 +1,68 @@
+
+<h1>{{routerPathDepartmentId}}</h1>
+
+<div class="middle-div">
+  <p style="display: inline">Department Name: </p>
+  <input type="text" [(ngModel)]="newDeptName" />
+  <button (click)="addNewDepartment()">Add</button> 
+</div>
+
+<br>
+
+<div class="middle-div">
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns">
+          {{column}}
+        </th>
+        <th>
+          Delete
+        </th>
+        <th>
+          Edit
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let row of rows; let rowIndex = index"
+          (click)='setActiveRowIndex(rowIndex)'
+          [ngClass]="{'active-row': rowIndex == getActiveRowIndex()}">
+        
+
+        <td *ngIf="rowIndex != editRowIndex" >{{row.id}}</td>
+        <td *ngIf="rowIndex == editRowIndex" >
+          <input type="text" [(ngModel)]="editRowValue.id" />
+        </td>
+
+        
+        <td *ngIf="rowIndex != editRowIndex" >{{row.name}}</td>
+        <td *ngIf="rowIndex == editRowIndex" >
+          <input type="text" [(ngModel)]="editRowValue.name" />
+        </td>
+
+
+        <td (click)='deleteRow(rowIndex)'><img src="/assets/delete.png" width="16" height="16" /></td>
+
+        <td *ngIf="rowIndex != editRowIndex">
+          <img (click)='setEditRow(rowIndex)' src="/assets/edit.png" width="16" height="16" />
+        </td>
+
+        <td *ngIf="rowIndex == editRowIndex">
+          <button (click)="saveRowEdit()">save</button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="getActiveRowId()">
+
+  <app-employee
+    [deptId] = "getActiveRowId()"
+  >
+  </app-employee>
+  
+</div>

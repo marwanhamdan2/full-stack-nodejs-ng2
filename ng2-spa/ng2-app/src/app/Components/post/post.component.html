@@ -1,0 +1,9 @@
+<button (click)="getPosts()">getPosts</button>
+<div *ngIf="posts.length > 0">
+  <h1> {{posts.length}} </h1>    
+  <div  *ngFor="let post of posts">
+    <h1>{{post.title}}</h1>
+    <p>{{post.body}}</p>
+  </div>
+</div>
+
