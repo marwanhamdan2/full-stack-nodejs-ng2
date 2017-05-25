@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="jquery-ui.css">
+        <script src="jquery-1.12.4.js"></script>
+        <script src="jquery-ui.js"></script>
+        <script src="script.js" type="text/javascript"></script>
+
+        <script>
+            $( function() {
+                $( "#tabs" ).tabs();
+            } );
+        </script>
+
+    </head>
+</html>
+
+<body>
+
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Quizes</a></li>
+    <li><a href="#tabs-2">Products</a></li>
+  </ul>
+
+  <div id="tabs-1">
+
+    <div id="signup">
+        <p>name</p> <input type="text" id="userName" />
+        <p>email </p> <input type="text" id="userEmail" />
+        <p>phone </p> <input type="text" id="userPhone" />
+
+        <input type="checkbox" id="lic"><span>I agree</span>
+        <button id="sign_next">next</button>                
+    </div>
+
+    <div id="question">
+        <p id="title"> </p>
+        
+        <input type="radio" name="option" value="1"> <span id="option1"></span>
+        <input type="radio" name="option" value="2"> <span id="option2"></span>
+        <input type="radio" name="option" value="3"> <span id="option3"></span>
+        <input type="radio" name="option" value="4"> <span id="option4"></span>
+    </div>
+
+    <div id="end_question">
+        <p>
+            Thank you for your pariticipation
+        </p>
+    </div>
+
+
+
+  </div>
+  <div id="tabs-2">
+    <p>tab2 </p>
+
+
+  </div>
+</div>
+ 
+
+
+
+
+</body>
+
