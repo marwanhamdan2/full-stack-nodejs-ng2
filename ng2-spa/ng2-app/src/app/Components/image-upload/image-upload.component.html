@@ -1,0 +1,22 @@
+<div>
+  <input type="file" (change)="onFileChange($event)" />
+  <button (click)="uploadFile()">Upload Image</button>
+  <br>
+
+  <!--<img *ngIf="fileData" [src]="fileData" /> -->
+
+
+  <canvas  #canvasRef>
+  </canvas>
+
+
+  <br>
+
+  <h3
+    [ngStyle]="{color: uploadResponseStatus ? 'green' : 'red'}" >
+
+    {{uploadResponseMessage}}
+
+  </h3>
+
+</div>

@@ -5,13 +5,16 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import {environment} from '../../../environments/environment';
+import {Websocket} from '../../Utils/RT/websocket';
+
 
 @Injectable()
 export class AuthService {
 
   private API_BASE_URL:string;
   constructor(private http: Http) { 
-    this.API_BASE_URL = `127.0.0.1:8020`;
+    this.API_BASE_URL = `${environment.remoteServer}:${environment.remotePort}`;
   }
 
 
@@ -93,6 +96,15 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('AUTH_TOKEN');
+    Websocket.getInstance().then((wsInstance: any)=>{
+      console.log(`disconnect websocket`);
+      wsInstance.emit("disconnect");
+      Websocket.deleteSocket();
+    });
+  }
+
+  getAuthToken(){
+    return localStorage.getItem("AUTH_TOKEN");
   }
 
 }

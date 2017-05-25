@@ -33,6 +33,10 @@ import { EmployeeComponent } from './Components/employee/employee.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { PhotoComponent } from './Components/photo/photo.component';
+import { RtCommComponent } from './Components/rt-comm/rt-comm.component';
+import { RealTimeFileWatchComponent } from './Components/real-time-file-watch/real-time-file-watch.component';
+import { ChatSessionComponent } from './Components/chat-session/chat-session.component';
+import { ImageUploadComponent } from './Components/image-upload/image-upload.component';
 
 
 
@@ -62,12 +66,31 @@ const routes: Routes = [
     canActivate: [LoggedInGuard]
   },
   {
+    path: 'rt-comm',
+    component : RtCommComponent,
+    canActivate: [LoggedInGuard]
+  },
+  {
+    path: 'rt-comm-session',
+    component : ChatSessionComponent,
+    canActivate: [LoggedInGuard]
+  },
+  {
+    path: 'rt-fs-watch',
+    component : RealTimeFileWatchComponent,
+    canActivate: [LoggedInGuard]
+  },
+  {
     path: 'posts',
     component: PostComponent
   },
   {
     path: 'photos',
     component: PhotoComponent
+  },
+  {
+    path: 'image-upload',
+    component: ImageUploadComponent
   },
   {
     path: 'departments/:id',
@@ -91,7 +114,11 @@ const routes: Routes = [
     EmployeeComponent,
     LoginComponent,
     RegisterComponent,
-    PhotoComponent
+    PhotoComponent,
+    RtCommComponent,
+    RealTimeFileWatchComponent,
+    ChatSessionComponent,
+    ImageUploadComponent
   ],
 
   /**

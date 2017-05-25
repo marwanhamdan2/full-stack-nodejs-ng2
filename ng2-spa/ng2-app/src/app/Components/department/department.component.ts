@@ -11,12 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DepartmentComponent implements OnInit {
 
-  private routerPathDepartmentId : number;
+  routerPathDepartmentId : number;
 
-  private columns: string[];
-  private rows: Department[];
+  columns: string[];
+  rows: Department[];
   private activeRowIndex: number;
-  private newDeptName: string;
+  newDeptName: string;
   private editRowIndex: number;
   private editRowValue : any;
 

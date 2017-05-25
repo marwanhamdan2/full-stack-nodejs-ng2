@@ -1,0 +1,34 @@
+.messages_container {
+    font-family: sans-serif;
+    display: inline-block;
+    width: 100%;
+}
+
+.messages_container_inner{
+    display: block;
+    height: 45px;
+}
+
+.messages_container .messsage_form{
+    display: inline-block;
+    float: left;
+
+    padding: 9px;
+    background: #c6e2ff;
+    color: #fff;
+    border-radius: 15px;
+    border-bottom-left-radius: 0px;
+    margin-left: 2%;
+}
+
+.messages_container .messsage_to{
+    display: inline-block;
+    float: right;
+
+    padding: 9px;
+    background: #bd00ff;
+    color: #dddddd;
+    border-radius: 15px;
+    border-bottom-right-radius: 0px;
+    margin-right: 2%;
+}

@@ -36,6 +36,15 @@ Define the router links
           <span>Names</span>
         </button>
 
+        <button *ngIf="isLoggedIn()" md-menu-item [routerLink]="['rt-comm']">
+          <md-icon>list</md-icon>
+          <span>Real-Time Comm. - webSocket</span>
+        </button>
+
+        <button *ngIf="isLoggedIn()" md-menu-item [routerLink]="['rt-fs-watch']">
+          <md-icon>list</md-icon>
+          <span>Real-Time File watcher</span>
+        </button>
 
         <button md-menu-item [routerLink]="['posts']">
           <md-icon>note</md-icon>
@@ -48,6 +57,10 @@ Define the router links
           <span>photos</span>
         </button>
 
+        <button md-menu-item [routerLink]="['image-upload']">
+          <md-icon>pageview</md-icon>
+          <span>Image upload</span>
+        </button>
 
         <button md-menu-item [routerLink]="['departments', 0]">
           <md-icon>home</md-icon>

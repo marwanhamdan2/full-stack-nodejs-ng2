@@ -1,0 +1,19 @@
+<p>
+  user id : {{getTargetUserId()}}
+</p>
+
+
+<div class="messages_container">
+  
+  <div class="messages_container_inner" *ngFor="let msg of msgList">
+      <div [ngClass]="{'messsage_form': msg.from, 'messsage_to': msg.to}">
+        {{msg.msg}}
+      </div>
+  </div>
+
+</div>
+
+<hr>
+
+<input type="text" (keyup.enter)="send()" [(ngModel)]="userMsg" />
+<button (click)="send()"> send </button>

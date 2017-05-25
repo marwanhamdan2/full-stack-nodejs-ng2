@@ -5,17 +5,24 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Employee} from '../../Interfaces/Employee';
+import {} from '../../../environments'
+
+import {environment} from '../../../environments/environment';
+
 
 @Injectable()
 export class EmployeeService {
 
   API_KEY: string;
+  API_BASE_URL: string;
+
   constructor(private http: Http) {
     this.API_KEY = `QcG6kP3yDnUHD67hWAAQyqrDdFm4gBPW`;  
+    this.API_BASE_URL = `${environment.remoteServer}:${environment.remotePort}`;
   }
 
   fetchDepartmentEmployees(deptId: number) : Observable<Employee[]>{
-    var route = `http://127.0.0.1:8020/employee/${deptId}`;
+    var route = `http://${this.API_BASE_URL}/employee/${deptId}`;
     return this.http.get(route)
       .map((res: Response) =>{
         var body = res.json();
@@ -25,7 +32,7 @@ export class EmployeeService {
   }
 
   createEmployee(employee) : Observable<number>{
-    var route = `http://127.0.0.1:8020/employee?_t=${this.API_KEY}`;
+    var route = `http://${this.API_BASE_URL}/employee?_t=${this.API_KEY}`;
     return this.http.post(route, employee)
     .map((res: Response)=>{
       var body = res.json();
@@ -35,13 +42,13 @@ export class EmployeeService {
   }
 
   deleteEmployee(empId){
-    var route = `http://127.0.0.1:8020/employee/${empId}`;
+    var route = `http://${this.API_BASE_URL}/employee/${empId}`;
     return this.http.delete(route)
     .catch(this.handleError);
   }
 
   editEmployee(rowValue){
-    var route = `http://127.0.0.1:8020/employee`;
+    var route = `http://${this.API_BASE_URL}/employee`;
     return this.http.put(route, rowValue)
     .catch(this.handleError);
   }

@@ -28,7 +28,7 @@ export class NamesComponent implements OnInit {
     this.names.splice(index, 1);
   }
 
-  addName(name){
+  addName(){
     this.names.push(this.newName);
     this.newName= "";
   }

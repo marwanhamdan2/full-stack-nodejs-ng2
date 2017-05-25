@@ -1,0 +1,11 @@
+<div>
+  <textarea 
+    rows="20"
+    [(ngModel)]="fileData"
+    (ngModelChange)="textChanged()"
+  ></textarea>
+
+<div [innerHTML]="fileData">
+
+</div>
+</div>

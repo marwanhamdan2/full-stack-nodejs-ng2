@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from '../../Services/Auth/auth.service';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 
 
@@ -22,7 +23,11 @@ export class RootComponent {
    */
 
 
-  constructor(private AuthService: AuthService){
+  constructor(
+    private AuthService: AuthService,
+    private Router: Router
+  ){
+
   }
 
   isLoggedIn(){
@@ -30,6 +35,8 @@ export class RootComponent {
   }
 
   logout(){
+    console.log(`Logging out`);
     this.AuthService.logout();
+    this.Router.navigate(['/login']);
   }
 }

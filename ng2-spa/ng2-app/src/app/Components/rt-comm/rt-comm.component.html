@@ -1,0 +1,40 @@
+<div class="outer_container">
+  <div class="table_title">
+    Clients
+  </div>
+  <div class="table">
+    <table>
+        <thead>
+          <tr class="table_header">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Is Admin</th>
+            <th>Chat-with</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="search" *ngFor="let client of clientsList">
+            <td>{{client.id}}</td>
+            <td>{{client.name}}</td>
+            <td>{{client.isAdmin ? 'YES' : 'NO'}}</td>
+            <td (click)="setTargerUserId(client.id)"
+              style="text-decoration: underline; color: blue; cursor: pointer"
+            >chat!</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+
+<div>
+
+  <app-chat-session *ngIf="isWsReady && getTargetUserId()"
+    [targetUserId]="getTargetUserId()"
+    [incomeMsgEmitter]="getWsSocket()"
+    (sendChatMessage)="sendWsChatMessage($event)"
+  >
+  </app-chat-session>
+
+</div>
